@@ -1,0 +1,40 @@
+input[type=text],input[type=password], select {
+
+  width: 50%;
+  padding: 10px;
+  
+  
+}
+button{
+  width: 50%;
+  background-color: #4c4caf;
+  color: white;
+  padding: 14px ;
+  border: 20px;
+  margin: 20PX;
+}
+form{
+  border: 20px;
+  padding: 50px;
+}
+.App{
+  float: center;
+  margin:0px auto;
+  
+  background-color: rgb(146, 136, 99);
+}
+.formErrors{
+  color: #cc0033;
+}
+.formGrp{
+  margin: 20PX;
+}
+.success-message {
+  background-color: rgb(146, 136, 99);
+  border-color: #c3e6cb;
+  padding: 10px;
+  color: #155724;;
+  border-radius: 5px;
+  width: 50%;
+  margin: 18px;
+}
