@@ -2,28 +2,17 @@ import React, { useState,useEffect, useRef } from "react";
 import { LineWave    } from "react-loader-spinner";
 
 function TakeHome(){
-    //let dropdownData;
-    
+
     const [occupationData,setoccupationData] = useState([]);
     const [statesData,setstatesData] = useState([]);
     const [isFormSubmitted,setIsFormSubmitted] = useState(false); 
     const [formErrors,setFormErrors] = useState({});
     const [successfullySubmitted,setSuccessfullySubmitted] = useState(false);
     const formRef = useRef();
-    const [formValues,setFormValues] = useState({
-        name: '',
-        email: '',
-        password: '',
-        occupaion: '',
-        state: ''
-        });
+
      
-    const handleChange = event=>{
-        setFormValues({...formValues, [event.target.name]: event.target.value})
-    }
     const formValidation = (props) => {
         setFormErrors({});
-        console.log(JSON.stringify(formErrors));
         const errors = {}
         if(!props.name){
             errors.name = 'Full Name is required'
@@ -58,19 +47,6 @@ function TakeHome(){
         e.preventDefault();
         //debugger;
         setIsFormSubmitted(true);
-        setFormValues({
-            ...formValues, 
-            name: e.target.name.value, 
-            email: e.target.email.value,
-            password: e.target.password.value,
-            occupation: e.target.occupation.value,
-            state: e.target.state.value
-        });
-        
-        console.log(formErrors);
-        console.log(formValues);
-
-        //debugger;
         const formValues1 = {
             
             "name": e.target.name.value,
@@ -82,7 +58,6 @@ function TakeHome(){
         const fValidObj = (formValidation(formValues1));
         
         setFormErrors(fValidObj);
-        //debugger;
         if(Object.keys(fValidObj).length == 0){
             fetch('https://frontend-take-home.fetchrewards.com/form', {
                 method: "POST",
@@ -98,9 +73,7 @@ function TakeHome(){
                         setSuccessfullySubmitted(false)
                     }, 3000)
                 }
-                console.log(response);
             })
-            .then(jsonResponse => console.log(jsonResponse))
         }else{setIsFormSubmitted(false)}
         
     }
@@ -117,11 +90,11 @@ function TakeHome(){
                 <p>Thank you for submitting the form!</p>
             </div>}
             <div className="formGrp">
-                <input type="text" name="name"  placeholder="Full Name *" onChange={handleChange}/>
+                <input type="text" name="name"  placeholder="Full Name *"/>
                 <div className="formErrors">{formErrors.name}</div>
             </div> 
             <div className="formGrp">
-                <input type="text" name="email" placeholder="Email *" onChange={handleChange}/>
+                <input type="text" name="email" placeholder="Email *"/>
                 <div className="formErrors">{formErrors.email}</div>
             </div>
             <div className="formGrp">
