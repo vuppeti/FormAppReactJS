@@ -1,5 +1,4 @@
 import React, { useState,useEffect, useRef } from "react";
-import { LineWave    } from "react-loader-spinner";
 
 function TakeHome(){
 
