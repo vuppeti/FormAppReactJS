@@ -146,9 +146,7 @@ function TakeHome(){
             <button disabled={isFormSubmitted}>
                 {isFormSubmitted && <span className="mx-4 spinner-grow spinner-grow-sm "></span>}
                 Submit
-            </button>
-
-            
+            </button>           
         </form>
         </>
     )
